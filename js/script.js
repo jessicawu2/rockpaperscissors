@@ -4,13 +4,13 @@
 
 //GLOBAL VARIABLES
 /* global $ */
-var userChoice = prompt("Do you choose rock, paper or scissors?");
+let userChoice = prompt("Do you choose rock, paper or scissors?");
         if (! userChoice) {
-            document.write("<p>Player 1, you cheated! Refresh this screen and fight like a man.</p>");
+            $("#userChoice").text("Input Something")
         } else {
-            document.write("<p>Player 1:" + " " + userChoice + "</p>");
+            $("#userChoice").text(userChoice);
         }
-        var computerChoice = Math.random();
+        let computerChoice = Math.random();
         if (computerChoice < 0.34) {
             computerChoice = "rock";
         } else if(computerChoice <= 0.67) {
@@ -18,8 +18,11 @@ var userChoice = prompt("Do you choose rock, paper or scissors?");
         } else {
             computerChoice = "scissors";
         }
-        document.write("<p>Computer:" + " " + computerChoice + "</p>");
-        var compare = function(choice1,choice2) {
+        $("#computerChoice").text(computerChoice);
+        let winner= compare(userChoice,computerChoice);
+        
+        function compare(choice1,choice2) {
+            
             if (choice1 === choice2) {
                 return "It's a tie!";
             }
@@ -45,6 +48,6 @@ var userChoice = prompt("Do you choose rock, paper or scissors?");
                 }
             }
         };
-
+$("#result").text(winner);
 // DOCUMENT READY FUNCTION BELOW
 
